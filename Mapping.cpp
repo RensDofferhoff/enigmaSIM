@@ -13,7 +13,7 @@ Mapping::Mapping(const std::string& map) {
 }
 
 char Mapping::operator[](const char input) {
-    int index = input - 'a';
+    int index = input - 'A';
     if(index >= 0 && index <= 26) {
         return alphabetMap[index];
     }
