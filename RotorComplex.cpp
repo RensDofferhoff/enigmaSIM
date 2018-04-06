@@ -16,7 +16,7 @@ RotorComplex::RotorComplex(const std::list<RotorType>& rotorList, const std::str
     if(ringSettings.size() != rotorList.size() || startPositions.size() != rotorList.size()){
         throw std::runtime_error("invalid ring-settings or startpositions");
     }
-    for(auto& rotor : rotorList) {
+    for(const RotorType& rotor : rotorList) {
         rotors.push_back(new Rotor(rotorData.at(rotor), ringSettings[i], startPositions[i]));
         ++i;
     }
@@ -36,11 +36,11 @@ char RotorComplex::scramble(const char input) {
     }
 
     for(auto it = rotors.rbegin(); it != rotors.rend(); ++it) {
-        output = (*it)->scramble(input);
+        output = (*it)->scramble(output);
     }
-    output = reflector->scramble(input);
+    output = reflector->scramble(output);
     for(auto& rotor : rotors) {
-        output = rotor->scramble(input);
+        output = rotor->scramble(output);
     }
     return entry->scramble(output);
 }
