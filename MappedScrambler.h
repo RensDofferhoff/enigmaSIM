@@ -7,8 +7,8 @@
 
 class MappedScrambler : public Scrambler {
 public:
-    MappedScrambler(Mapping map) : map(map) {};
-    char scramble(const char input){return map[input];};
+    MappedScrambler(const Mapping& map) : map(map) {};
+    char scramble(const char input) const {return map[input];};
 private:
     Mapping map;
 };

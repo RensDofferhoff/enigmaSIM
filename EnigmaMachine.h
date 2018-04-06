@@ -5,15 +5,15 @@
 #include "Plugboard.h"
 #include <string>
 
-class EngimaMachine {
+class EnigmaMachine {
 public:
-    EngimaMachine(std::list<RotorType>& rotorList, std::string ringSettings,
-         std::string startPositions, Scrambler* entry, Scrambler* reflector, std::string plugboardString);
+    EnigmaMachine(const std::list<RotorType>& rotorList, const std::string ringSettings,
+         const std::string startPositions, const Scrambler* entry, const Scrambler* reflector, const std::string plugboardString);
 
-    std::string encrypt(std::string input);
+    std::string process(std::string input);
 private:
-    Plugboard plugboard;
     RotorComplex rotorComplex;
+    Plugboard plugboard;
 };
 
 #endif

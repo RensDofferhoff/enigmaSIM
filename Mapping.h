@@ -5,7 +5,7 @@
 
 class Mapping {
 public:
-    Mapping();
+    Mapping() : alphabetMap() {};
     Mapping(const std::string& map);
     char operator[](const char input);
 private:

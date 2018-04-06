@@ -10,13 +10,13 @@
 class RotorComplex : public Scrambler {
 public:
     ~RotorComplex();
-    RotorComplex(std::list<RotorType>& rotorList, std::string ringSettings,
-         std::string startPositions, Scrambler* entry, Scrambler* reflector);
-    char scramble(const char input);
+    RotorComplex(const std::list<RotorType>& rotorList, const std::string ringSettings,
+         const std::string startPositions, const Scrambler* entry, const Scrambler* reflector);
+    char scramble(const char input) const;
 private:
     std::list<Rotor*> rotors;
-    Scrambler* reflector;
-    Scrambler* entry;
+    const Scrambler* reflector;
+    const Scrambler* entry;
 };
 
 #endif

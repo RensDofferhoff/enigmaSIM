@@ -4,7 +4,7 @@
 class Scrambler {
 public:
     virtual ~Scrambler() {}
-    virtual char scramble(const char input) = 0;
+    virtual char scramble(const char input) const = 0;
 };
 
 #endif
