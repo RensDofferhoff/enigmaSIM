@@ -22,7 +22,7 @@ RotorComplex::RotorComplex(const std::list<RotorType>& rotorList, const std::str
     }
 }
 
-char RotorComplex::scramble(const char input) const {
+char RotorComplex::scramble(const char input) {
     char output = entry->scramble(input);
 
     auto it = rotors.rbegin();

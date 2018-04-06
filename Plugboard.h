@@ -8,7 +8,7 @@
 class Plugboard : public Scrambler {
 public:
     Plugboard(std::string pairString);
-    char scramble(const char input) const;
+    char scramble(const char input);
 private:
     Mapping map;
 };

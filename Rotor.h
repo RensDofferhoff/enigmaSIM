@@ -18,7 +18,7 @@ class Rotor : public Scrambler {
 public:
     Rotor(const RotorData& data, const char startposition, const char ringSetting)
     : rotorData(data), position(startposition), ringSetting(ringSetting) {};
-    char scramble(const char input) const;
+    char scramble(const char input);
     bool checkOnTurnover();
     void rotate();
 

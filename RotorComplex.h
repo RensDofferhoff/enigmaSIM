@@ -12,7 +12,7 @@ public:
     ~RotorComplex();
     RotorComplex(const std::list<RotorType>& rotorList, const std::string ringSettings,
          const std::string startPositions, const Scrambler* entry, const Scrambler* reflector);
-    char scramble(const char input) const;
+    char scramble(const char input);
 private:
     std::list<Rotor*> rotors;
     const Scrambler* reflector;
