@@ -8,7 +8,7 @@
 class EnigmaMachine {
 public:
     EnigmaMachine(const std::list<RotorType>& rotorList, const std::string ringSettings,
-         const std::string startPositions, const Scrambler* entry, const Scrambler* reflector, const std::string plugboardString);
+         const std::string startPositions, Scrambler* entry, Scrambler* reflector, const std::string plugboardString);
 
     std::string process(std::string input);
 private:

@@ -22,8 +22,8 @@ static const std::map<RotorType, RotorData> rotorData =
 {RotorType::TEST, {RotorType::TEST, Mapping(alphabet), {'A'}}}
 };
 
-static const MappedScrambler ETW(alphabet);
-static const MappedScrambler UKW(alphabet);
+static MappedScrambler ETW(alphabet);
+static MappedScrambler UKW(alphabet);
 static const std::list<RotorType> TestList = {RotorType::TEST};
 
 #endif

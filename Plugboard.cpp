@@ -9,7 +9,8 @@ Plugboard::Plugboard(std::string pairString) {
     while(ss.good()) {
        std::string substr;
        getline(ss, substr, ',');
-       mapString[substr[0] - 'A'] = substr[2];
+       if(!substr.empty())
+            mapString[substr[0] - 'A'] = substr[1];
     }
     map = Mapping(mapString);
 }
