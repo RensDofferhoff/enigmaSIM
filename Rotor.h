@@ -1,20 +1,33 @@
 #ifndef ROTOR_H
 #define ROTOR_H
 
+#include <string>
+#include <list>
 #include "Scrambler.h"
 #include "Mapping.h"
-#include "data.h"
+
+enum class RotorType;
+
+struct RotorData {
+    const RotorType type;
+    Mapping map;
+    const std::list<char> turnover;
+};
 
 class Rotor : public Scrambler {
 public:
-    Rotor(const RotorType type, const char startposition, const char ringSetting, const char turnover, const char notch); //TODO SETTINGS class
+    Rotor(const RotorData& data, const char startposition, const char ringSetting)
+    : rotorData(data), position(startposition), ringSetting(ringSetting) {};
     char scramble(const char input);
+    bool checkOnTurnover();
+    void rotate();
+
 private:
-    Mapping map;
+    RotorData rotorData;
     char position;
     char ringSetting;
-    char turnover;
-    char notch;
+
+    int calcPosition(const int offset);
 };
 
 #endif

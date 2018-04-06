@@ -1,9 +1,21 @@
 #include "Rotor.h"
 
 char Rotor::scramble(const char input) {
-    position = position + 1;
-    if (position == 'Z' + 1) {
-        position = 'A';//TODO callback function
+    return rotorData.map[input + (position + ringSetting) % 'A'];
+}
+
+bool Rotor::checkOnTurnover() {
+    for(auto pos : rotorData.turnover) {
+        if(pos == position)
+            return true;
     }
-    return map[position];
+    return false;
+}
+
+void Rotor::rotate() {
+    position = calcPosition(1);
+}
+
+int Rotor::calcPosition(const int offset) {
+    return (position + offset) % 'A' + 'A';
 }
