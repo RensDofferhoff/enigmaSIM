@@ -35,8 +35,8 @@ private:
     RotorData rotorData;
     Mapping map;
     Mapping reverseMap;
-    char position;
-    char ringSetting;
+    unsigned char position;
+    unsigned char ringSetting;
     bool reverse = false;
 
     int calcPosition(const int offset);

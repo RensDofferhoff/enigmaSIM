@@ -16,12 +16,12 @@ Mapping::Mapping(const std::string& map) {
 Mapping::Mapping(const std::string& map, const bool reverse) {
     std::string base = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     int i = 0;
-    if(map.length() != 26) {
-        throw std::runtime_error("map not 26 long");
-    }
     if(!reverse)
         Mapping(map);
     else {
+        if(map.length() != 26) {
+            throw std::runtime_error("map not 26 long");
+        }
         for(char character : map) {
             alphabetMap[character % 'A'] = base[i];
             ++i;
@@ -32,7 +32,6 @@ Mapping::Mapping(const std::string& map, const bool reverse) {
 
 char Mapping::operator[](const char input) {
     int index = input % 'A';
-    std::cout << (char)(input % 'A' + 'A');
     if(index >= 0 && index <= 25) {
         std::cout << alphabetMap[index] << std::endl;
         return alphabetMap[index];

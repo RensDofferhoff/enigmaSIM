@@ -6,9 +6,9 @@ Rotor::Rotor(const RotorData& data) : rotorData(data), map(Mapping(rotorData.map
 char Rotor::scramble(const char input) {
     char result;
     if(reverse)
-        result = map[input + (position + ringSetting) % 'A'];
+        result = map[(input + position + ringSetting) % 26 + 'A'];
     else
-        result = reverseMap[input + (position + ringSetting) % 'A'];
+        result = reverseMap[(input + position + ringSetting) % 26 + 'A'];
     reverse = !reverse;
     return result;
 }
@@ -26,5 +26,6 @@ void Rotor::rotate() {
 }
 
 int Rotor::calcPosition(const int offset) {
-    return (position + offset) % 'A' + 'A';
+
+    return (position + offset) % 26 + 'A';
 }
