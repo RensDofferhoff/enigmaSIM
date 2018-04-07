@@ -9,10 +9,12 @@
 
 class RotorComplex : public Scrambler {
 public:
+    ~RotorComplex(){delete reflector; delete entry;}
     RotorComplex(const std::list<Rotor>& rotorList, const std::string ringSettings,
-         const std::string startPositions, Scrambler* entry, Scrambler* reflector);
-    RotorComplex(const std::list<Rotor>& rotorList, Scrambler* entry_, Scrambler* reflector_)
-    : rotors(rotorList), reflector(reflector_), entry(entry_) {}
+         const std::string startPositions, const Scrambler* entry, const Scrambler* reflector);
+    RotorComplex(const std::list<Rotor>& rotorList, const Scrambler* entry_, const Scrambler* reflector_)
+    : rotors(rotorList), reflector(reflector_->clone()), entry(entry_->clone()) {}
+    RotorComplex* clone() const { return new RotorComplex(*this); };
 
     char scramble(const char input);
     void setSettings(const std::string positions, const std::string ringSettings);

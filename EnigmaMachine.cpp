@@ -1,10 +1,10 @@
 #include "EnigmaMachine.h"
 
 EnigmaMachine::EnigmaMachine(const std::list<Rotor>& rotorList, const std::string ringSettings,
-     const std::string startPositions, Scrambler* entry, Scrambler* reflector, const std::string plugboardString)
+     const std::string startPositions, const Scrambler* entry, const Scrambler* reflector, const std::string plugboardString)
  : rotorComplex(rotorList, ringSettings, startPositions, entry, reflector), plugboard(plugboardString) {}
 
- EnigmaMachine::EnigmaMachine(const std::list<Rotor>& rotorList, Scrambler* entry, Scrambler* reflector)
+ EnigmaMachine::EnigmaMachine(const std::list<Rotor>& rotorList, const Scrambler* entry, const Scrambler* reflector)
   : rotorComplex(rotorList, entry, reflector), plugboard("") {}
 
   void EnigmaMachine::setSettings(const std::string ringSettings,

@@ -6,6 +6,7 @@
 #include <list>
 #include "RotorComplex.h"
 #include "MappedScrambler.h"
+#include "EnigmaMachine.h"
 
 enum class RotorType {I, II, III, TEST};
 
@@ -17,4 +18,5 @@ static const Rotor I({RotorType::I, Mapping("EKMFLGDQVZNTOWYHXUSPAIBRCJ"), {'Q'}
 static const Rotor II({RotorType::II, Mapping("AJDKSIRUXBLHWTMCQGZNPYFVOE"), {'E'}});
 static const Rotor III({RotorType::III, Mapping("BDFHJLCPRTXVZNYEIWGAKMUSQO"), {'V'}});
 
+static EnigmaMachine EnigmaI({I,II,III}, &ETW, &UKW_B);
 #endif

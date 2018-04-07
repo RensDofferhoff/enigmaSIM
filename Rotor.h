@@ -22,6 +22,8 @@ public:
     Rotor(const Rotor& rotor, const char startposition, const char ringSetting_)
     :   Rotor(rotor) {position = startposition; ringSetting = ringSetting_;};
 
+    Rotor* clone() const { return new Rotor(*this); };
+
     char scramble(const char input);
     bool checkOnTurnover();
     void rotate();
