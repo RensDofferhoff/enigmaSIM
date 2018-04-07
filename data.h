@@ -9,26 +9,12 @@
 
 enum class RotorType {I, II, III, TEST};
 
+static const MappedScrambler ETW(Mapping("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+static const MappedScrambler UKW_B(Mapping("YRUHQSLDPXNGOKMIEBFZCWVJAT"));
 
-static const std::string alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-static const std::string RotorI = "EKMFLGDQVZNTOWYHXUSPAIBRCJ";
-static const std::string RotorII = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
-static const std::string RotorIII = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
-
-static const Mapping alphabet(alphabetString);
-static const Mapping UKW_B_MAP("YRUHQSLDPXNGOKMIEBFZCWVJAT");
-
-static const std::map<RotorType, RotorData> rotorData =
-{
-{RotorType::TEST, {RotorType::TEST, Mapping(alphabet), {'A'}}},
-{RotorType::I, {RotorType::I, Mapping(alphabet), {'Q'}}},
-{RotorType::II, {RotorType::II, Mapping(alphabet), {'E'}}},
-{RotorType::III, {RotorType::III, Mapping(alphabet), {'V'}}}
-};
-
-static MappedScrambler UKW_TEST(alphabet);
-static MappedScrambler ETW(alphabet);
-static MappedScrambler UKW_B(UKW_B_MAP);
-static const std::list<RotorType> EnigmaIList = {RotorType::III, RotorType::II, RotorType::I};
+static const Rotor TEST({RotorType::TEST, Mapping("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), {'Q'}});
+static const Rotor I({RotorType::I, Mapping("EKMFLGDQVZNTOWYHXUSPAIBRCJ"), {'Q'}});
+static const Rotor II({RotorType::II, Mapping("AJDKSIRUXBLHWTMCQGZNPYFVOE"), {'E'}});
+static const Rotor III({RotorType::III, Mapping("BDFHJLCPRTXVZNYEIWGAKMUSQO"), {'V'}});
 
 #endif

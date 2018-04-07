@@ -4,20 +4,26 @@
 #include <list>
 #include <stdexcept>
 
-RotorComplex::~RotorComplex() {
-    for(auto rotor : rotors) {
-        delete rotor;
-    }
-}
-
-RotorComplex::RotorComplex(const std::list<RotorType>& rotorList, const std::string ringSettings,
-     const std::string startPositions, Scrambler* entry, Scrambler* reflector) : reflector(reflector), entry(entry) {
+RotorComplex::RotorComplex(const std::list<Rotor>& rotorList, const std::string ringSettings,
+     const std::string startPositions, Scrambler* entry_, Scrambler* reflector_)
+     : reflector(reflector_), entry(entry_) {
     int i = 0;
     if(ringSettings.size() != rotorList.size() || startPositions.size() != rotorList.size()){
         throw std::runtime_error("invalid ring-settings or startpositions");
     }
-    for(const RotorType& rotor : rotorList) {
-        rotors.push_back(new Rotor(rotorData.at(rotor), ringSettings[i], startPositions[i]));
+    for(auto& rotor : rotorList) {
+        rotors.push_back(Rotor(rotor));
+        ++i;
+    }
+}
+
+void RotorComplex::setSettings(const std::string positions, const std::string ringSettings) {
+    int i = 0;
+    if(ringSettings.size() != rotors.size() || positions.size() != rotors.size()){
+        throw std::runtime_error("invalid ring-settings or startpositions");
+    }
+    for(auto& rotor : rotors) {
+        rotor.setSettings(ringSettings[i], positions[i]);
         ++i;
     }
 }
@@ -26,21 +32,21 @@ char RotorComplex::scramble(const char input) {
     char output = entry->scramble(input);
 
     auto it = rotors.rbegin();
-    (*it)->rotate(); //right rotor always rotates
-    bool turn = (*it)->checkOnTurnover();
+    it->rotate(); //right rotor always rotates
+    bool turn = it->checkOnTurnover();
     ++it;
     while(turn && it != rotors.rend()) {
-        turn = (*it)->checkOnTurnover();
-        (*it)->rotate();
+        turn = it->checkOnTurnover();
+        it->rotate();
         ++it;
     }
 
     for(auto it = rotors.rbegin(); it != rotors.rend(); ++it) {
-        output = (*it)->scramble(output);
+        output = it->scramble(output);
     }
     output = reflector->scramble(output);
     for(auto& rotor : rotors) {
-        output = rotor->scramble(output);
+        output = rotor.scramble(output);
     }
     return entry->scramble(output);
 }
