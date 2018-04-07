@@ -5,8 +5,8 @@
 #include <stdexcept>
 
 RotorComplex::RotorComplex(const std::list<Rotor>& rotorList, const std::string ringSettings,
-     const std::string startPositions, Scrambler* entry_, Scrambler* reflector_)
-     : reflector(reflector_), entry(entry_) {
+     const std::string startPositions, const Scrambler* entry_, const Scrambler* reflector_)
+     : reflector(reflector_->clone()), entry(entry_->clone()) {
     int i = 0;
     if(ringSettings.size() != rotorList.size() || startPositions.size() != rotorList.size()){
         throw std::runtime_error("invalid ring-settings or startpositions");

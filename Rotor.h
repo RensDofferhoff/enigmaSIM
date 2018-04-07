@@ -10,13 +10,13 @@ enum class RotorType;
 
 struct RotorData {
     const RotorType type;
-    Mapping map;
+    std::string map;
     const std::list<char> turnover;
 };
 
 class Rotor : public Scrambler {
 public:
-    Rotor(const RotorData& data) : rotorData(data), position('A'), ringSetting('A') {};
+    Rotor(const RotorData& data);
     Rotor(const RotorData& data, const char startposition, const char ringSetting)
     : rotorData(data), position(startposition), ringSetting(ringSetting) {};
     Rotor(const Rotor& rotor, const char startposition, const char ringSetting_)
@@ -33,8 +33,11 @@ public:
 
 private:
     RotorData rotorData;
+    Mapping map;
+    Mapping reverseMap;
     char position;
     char ringSetting;
+    bool reverse = false;
 
     int calcPosition(const int offset);
 };
