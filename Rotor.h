@@ -40,6 +40,8 @@ private:
     bool reverse = false;
 
     int calcPosition(const int offset);
+    char globalNormalization(char input);
+    char localNormalization(char input);
 };
 
 #endif

@@ -33,7 +33,7 @@ Mapping::Mapping(const std::string& map, const bool reverse) {
 char Mapping::operator[](const char input) {
     int index = input % 'A';
     if(index >= 0 && index <= 25) {
-        std::cout << alphabetMap[index] << std::endl;
+        // std::cout << alphabetMap[index] << std::endl;
         return alphabetMap[index];
     }
     throw std::runtime_error("illegal input character");

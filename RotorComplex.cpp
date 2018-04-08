@@ -3,6 +3,7 @@
 #include <string>
 #include <list>
 #include <stdexcept>
+#include <iostream>
 
 RotorComplex::RotorComplex(const std::list<Rotor>& rotorList, const std::string ringSettings,
      const std::string startPositions, const Scrambler* entry_, const Scrambler* reflector_)
@@ -48,5 +49,6 @@ char RotorComplex::scramble(const char input) {
     for(auto& rotor : rotors) {
         output = rotor.scramble(output);
     }
+    std::cout << std::endl;
     return entry->scramble(output);
 }
