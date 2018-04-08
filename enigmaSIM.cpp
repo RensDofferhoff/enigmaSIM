@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
     std::cin >> input;
     capitalString(input);
     capitalString(plugboardString);
-    enigmaI.setSettings("AAA", "AAA", plugboardString);
+    enigmaI.setSettings("AAA", "BAC", plugboardString);
     std::cout << "processed text:" << std::endl << enigmaI.process(input) << std::endl;
     return 0;
 }
