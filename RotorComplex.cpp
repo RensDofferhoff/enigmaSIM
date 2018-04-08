@@ -33,8 +33,8 @@ char RotorComplex::scramble(const char input) {
     char output = entry->scramble(input);
 
     auto it = rotors.rbegin();
-    it->rotate(); //right rotor always rotates
     bool turn = it->checkOnTurnover();
+    it->rotate(); //right rotor always rotates
     ++it;
     while(turn && it != rotors.rend()) {
         turn = it->checkOnTurnover();
@@ -49,6 +49,5 @@ char RotorComplex::scramble(const char input) {
     for(auto& rotor : rotors) {
         output = rotor.scramble(output);
     }
-    std::cout << std::endl;
     return entry->scramble(output);
 }
