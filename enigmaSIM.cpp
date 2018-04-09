@@ -10,12 +10,12 @@ void capitalString(std::string& input) {
 }
 
 int main(int argc, char const *argv[]) {
-    EnigmaMachine enigmaI({II,IV,V}, &ETW, &UKW_B);
+    EnigmaMachine enigmaI({III,VI,VIII}, &ETW, &UKW_B);
     std::string input;
     std::cout << "Enter input to process:" << std::endl;
     std::cin >> input;
     capitalString(input);
-    enigmaI.setSettings("BLA", "BUL", "AV,BS,CG,DL,FU,HZ,IN,KM,OW,RX");
+    enigmaI.setSettings("ZZZ", "AHM", "");
     std::cout << "processed text:" << std::endl << enigmaI.process(input) << std::endl;
     return 0;
 }
