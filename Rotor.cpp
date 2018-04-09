@@ -2,7 +2,7 @@
 #include <iostream>
 
 Rotor::Rotor(const RotorData& data) : rotorData(data), map(Mapping(rotorData.map)),
- reverseMap(Mapping(rotorData.map, true)) ,position('A'), ringSetting('A') {}
+ reverseMap(Mapping(rotorData.map, true)), position('A'), ringSetting('A') {}
 
 char Rotor::scramble(const char input) {
     char result;
@@ -23,18 +23,29 @@ bool Rotor::checkOnTurnover() {
 }
 
 char Rotor::globalNormalization(char input) {
-    int globalPosition = input - (position + ringSetting - 2 * 'A');
-    if(globalPosition >= 'A') {
+    int globalPosition = input - (position - 'A') + (ringSetting - 'A');
+    if(globalPosition >= 'A' && globalPosition <= 'Z') {
         return globalPosition;
     }
-    else {
+    else if(globalPosition < 'A') {
         return 'Z' - ('A'- globalPosition - 1);
+    }
+    else {
+        return (globalPosition - 'Z') + 'A' - 1;
     }
 }
 
 char Rotor::localNormalization(char input) {
-    int localPosition = (input + position + ringSetting - 3 * 'A') % 26 + 'A';
-    return localPosition;
+    int localPosition = input + (position - 'A') - (ringSetting - 'A');
+    if(localPosition >= 'A' && localPosition <= 'Z') {
+        return localPosition;
+    }
+    else if(localPosition < 'A') {
+        return 'Z' - ('A'- localPosition - 1);
+    }
+    else {
+        return (localPosition - 'Z') + 'A' - 1;
+    }
 }
 
 void Rotor::rotate() {

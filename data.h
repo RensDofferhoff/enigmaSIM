@@ -12,6 +12,8 @@ enum class RotorType {I, II, III, TEST};
 
 static const MappedScrambler ETW(Mapping("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
 static const MappedScrambler UKW_B(Mapping("YRUHQSLDPXNGOKMIEBFZCWVJAT"));
+static const MappedScrambler UKW_A(Mapping("EJMZALYXVBWFCRQUONTSPIKHGD"));
+
 
 static const Rotor TEST({RotorType::TEST, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", {'Q'}});
 static const Rotor I({RotorType::I, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", {'Q'}});

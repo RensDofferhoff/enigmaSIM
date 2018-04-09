@@ -11,10 +11,6 @@ Mapping::Mapping(const std::string& map) {
         alphabetMap[i] = character;
         ++i;
     }
-    for(int i =0; i<26; i++){
-        std::cout << alphabetMap[i];
-    }
-    std::cout  << std::endl;
 }
 
 Mapping::Mapping(const std::string& map, const bool reverse) {

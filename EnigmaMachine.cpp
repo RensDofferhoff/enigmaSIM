@@ -7,8 +7,8 @@ EnigmaMachine::EnigmaMachine(const std::list<Rotor>& rotorList, const std::strin
  EnigmaMachine::EnigmaMachine(const std::list<Rotor>& rotorList, const Scrambler* entry, const Scrambler* reflector)
   : rotorComplex(rotorList, entry, reflector), plugboard("") {}
 
-  void EnigmaMachine::setSettings(const std::string ringSettings,
-       const std::string startPositions, const std::string plugboardString) {
+  void EnigmaMachine::setSettings(const std::string startPositions, const std::string ringSettings,
+       const std::string plugboardString) {
     plugboard = Plugboard(plugboardString);
     rotorComplex.setSettings(ringSettings, startPositions);
  }

@@ -29,7 +29,7 @@ public:
     void rotate();
     void setRingSetting(const char setting) {ringSetting = setting;};
     void setPosition(const char newPosition) {position = newPosition;};
-    void setSettings(const char setting, const char newPosition) {position = newPosition; ringSetting = setting;};
+    void setSettings(const char newPosition, const char setting) {position = newPosition; ringSetting = setting;};
 
 private:
     RotorData rotorData;
