@@ -10,7 +10,7 @@ void capitalString(std::string& input) {
 }
 
 int main(int argc, char const *argv[]) {
-    EnigmaMachine enigmaI({I,II,III}, &ETW, &UKW_B);
+    EnigmaMachine enigmaI({II,IV,V}, &ETW, &UKW_B);
     std::string input;
     std::string plugboardString;
     std::cout << "Enter plugboard settings:" << std::endl;
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
     std::cin >> input;
     capitalString(input);
     capitalString(plugboardString);
-    enigmaI.setSettings("ABL", "XMV", plugboardString);
+    enigmaI.setSettings("BLA", "BUL", plugboardString);
     std::cout << "processed text:" << std::endl << enigmaI.process(input) << std::endl;
     return 0;
 }

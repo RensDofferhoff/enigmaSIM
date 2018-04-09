@@ -19,6 +19,9 @@ static const Rotor TEST({RotorType::TEST, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", {'Q'}});
 static const Rotor I({RotorType::I, "EKMFLGDQVZNTOWYHXUSPAIBRCJ", {'Q'}});
 static const Rotor II({RotorType::II, "AJDKSIRUXBLHWTMCQGZNPYFVOE", {'E'}});
 static const Rotor III({RotorType::III, "BDFHJLCPRTXVZNYEIWGAKMUSQO", {'V'}});
+static const Rotor IV({RotorType::I, "ESOVPZJAYQUIRHXLNFTGKDCMWB", {'J'}});
+static const Rotor V({RotorType::II, "VZBRGITYUPSDNHLXAWMJQOFECK", {'Z'}});
+static const Rotor VI({RotorType::III, "JPGVOUMFYQBENHZRDKASXLICTW", {'Z','M'}});
 
 
 #endif
