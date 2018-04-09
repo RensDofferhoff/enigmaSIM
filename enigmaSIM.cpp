@@ -12,14 +12,10 @@ void capitalString(std::string& input) {
 int main(int argc, char const *argv[]) {
     EnigmaMachine enigmaI({II,IV,V}, &ETW, &UKW_B);
     std::string input;
-    std::string plugboardString;
-    std::cout << "Enter plugboard settings:" << std::endl;
-    std::cin >> plugboardString;
     std::cout << "Enter input to process:" << std::endl;
     std::cin >> input;
     capitalString(input);
-    capitalString(plugboardString);
-    enigmaI.setSettings("BLA", "BUL", plugboardString);
+    enigmaI.setSettings("BLA", "BUL", "AV,BS,CG,DL,FU,HZ,IN,KM,OW,RX");
     std::cout << "processed text:" << std::endl << enigmaI.process(input) << std::endl;
     return 0;
 }
